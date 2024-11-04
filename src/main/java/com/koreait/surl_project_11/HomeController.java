@@ -2,20 +2,27 @@ package com.koreait.surl_project_11;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HomeController {
     @GetMapping("a")
     @ResponseBody
-    public String Hi() {
-        return "hi";
+    public String Hi(String age, String id) {
+        return "안녕, %s번, %s살이야.".formatted(id, age);
+
     }
 
     @GetMapping("b")
     @ResponseBody
-    public String Hi2() {
-        return "hi2";
+    public String plus(@RequestParam("a") String num1Str, String b) {
+        int num1 = Integer.parseInt(num1Str);
+        int num2 = Integer.parseInt(b);
+        System.out.println("a : " + num1Str);
+        System.out.println("b : " + b);
+        return "a + b = %d".formatted(num1 + num2);
     }
 }
+
 
