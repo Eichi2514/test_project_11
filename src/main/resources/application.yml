@@ -3,4 +3,3 @@ server:
 spring:
   application:
     name: surl_project_11
-
